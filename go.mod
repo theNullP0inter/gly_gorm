@@ -1,4 +1,4 @@
-module github.com/theNullP0inter/googly-contrib-gorm
+module github.com/theNullP0inter/gly_gorm
 
 go 1.13
 
