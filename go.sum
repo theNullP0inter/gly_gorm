@@ -549,6 +549,8 @@ github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69
 github.com/swaggo/swag v1.7.0/go.mod h1:BdPIL73gvS9NBsdi7M1JOxLvlbfvNRaBP8m6WT6Aajo=
 github.com/theNullP0inter/googly v0.0.0-20210816140803-8c1c58cc372d h1:VGL2dxnL/qlYCk2R7N1w0Mq70Egu+Qs3hSaMCo6wOsQ=
 github.com/theNullP0inter/googly v0.0.0-20210816140803-8c1c58cc372d/go.mod h1:ShAayoRj4FhuQgucwNtKxEoYXjuygZnGV+BVoT6tvtI=
+github.com/theNullP0inter/googly v0.0.0-20210820125037-315445acde35 h1:m3xyNSxD9KMCHQ9NPNAJKzYiEG6Mw6NBTXGZmGFQnQ8=
+github.com/theNullP0inter/googly v0.0.0-20210820125037-315445acde35/go.mod h1:ShAayoRj4FhuQgucwNtKxEoYXjuygZnGV+BVoT6tvtI=
 github.com/thedevsaddam/govalidator v1.9.10/go.mod h1:Ilx8u7cg5g3LXbSS943cx5kczyNuUn7LH/cK5MYuE90=
 github.com/tidwall/pretty v0.0.0-20180105212114-65a9db5fad51/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
 github.com/tidwall/pretty v1.0.0/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=

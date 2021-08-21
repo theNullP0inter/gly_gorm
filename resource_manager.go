@@ -6,7 +6,6 @@ import (
 
 	"github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/copier"
-	"github.com/theNullP0inter/googly/db"
 	"github.com/theNullP0inter/googly/logger"
 	"github.com/theNullP0inter/googly/resource"
 	"gorm.io/gorm"
@@ -19,7 +18,7 @@ type RdbResourceManager interface {
 type BaseRdbResourceManager struct {
 	*resource.BaseResourceManager
 	Db               *gorm.DB
-	Model            db.BaseModel
+	Model            resource.Resource
 	ListQueryBuilder RdbListQueryBuilder
 }
 
@@ -44,10 +43,6 @@ func (s *BaseRdbResourceManager) GetResource() resource.Resource {
 	return s.Model
 }
 
-// GetModel will get you the model resource
-func (s *BaseRdbResourceManager) GetModel() resource.Resource {
-	return s.Model
-}
 
 // Create creates an entry in with given data
 func (s *BaseRdbResourceManager) Create(m resource.DataInterface) (resource.DataInterface, error) {
@@ -131,7 +126,7 @@ func (s *BaseRdbResourceManager) List(parameters resource.DataInterface) (resour
 func NewRdbResourceManager(
 	db *gorm.DB,
 	logger logger.GooglyLoggerInterface,
-	model db.BaseModel,
+	model resource.Resource,
 	queryBuilder RdbListQueryBuilder,
 ) *BaseRdbResourceManager {
 	resourceManager := resource.NewBaseResourceManager(logger, model)
