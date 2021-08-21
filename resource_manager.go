@@ -43,10 +43,9 @@ func (s *BaseRdbResourceManager) GetResource() resource.Resource {
 	return s.Model
 }
 
-
 // Create creates an entry in with given data
 func (s *BaseRdbResourceManager) Create(m resource.DataInterface) (resource.DataInterface, error) {
-	item := reflect.New(reflect.TypeOf(s.GetModel())).Interface()
+	item := reflect.New(reflect.TypeOf(s.GetResource())).Interface()
 	copier.Copy(item, m)
 	result := s.Db.Create(item)
 
@@ -59,7 +58,7 @@ func (s *BaseRdbResourceManager) Create(m resource.DataInterface) (resource.Data
 // Get gets 1 item with given id
 func (s *BaseRdbResourceManager) Get(id resource.DataInterface) (resource.DataInterface, error) {
 	strId := id.(string)
-	item := reflect.New(reflect.TypeOf(s.GetModel())).Interface()
+	item := reflect.New(reflect.TypeOf(s.GetResource())).Interface()
 	binId, err := StringToBinID(strId)
 	if err != nil {
 		return nil, resource.ErrInvalidFormat
@@ -75,7 +74,7 @@ func (s *BaseRdbResourceManager) Get(id resource.DataInterface) (resource.DataIn
 // Update updates 1 item with given id & given data/update_set
 func (s *BaseRdbResourceManager) Update(id resource.DataInterface, data resource.DataInterface) error {
 
-	m := reflect.New(reflect.TypeOf(s.GetModel())).Interface()
+	m := reflect.New(reflect.TypeOf(s.GetResource())).Interface()
 	strId := id.(string)
 	binId, err := StringToBinID(strId)
 	if err != nil {
@@ -85,7 +84,7 @@ func (s *BaseRdbResourceManager) Update(id resource.DataInterface, data resource
 
 	copier.Copy(m, data)
 
-	result := s.Db.Model(s.GetModel()).Where("id = ?", bId).Updates(m)
+	result := s.Db.Model(s.GetResource()).Where("id = ?", bId).Updates(m)
 
 	if result.Error != nil {
 		return handleGormError(result.Error)
@@ -109,7 +108,7 @@ func (s *BaseRdbResourceManager) Delete(id resource.DataInterface) error {
 // it uses QueryBuilder.ListQuery() to filter the throuh rows
 func (s *BaseRdbResourceManager) List(parameters resource.DataInterface) (resource.DataInterface, error) {
 
-	items := reflect.New(reflect.SliceOf(reflect.TypeOf(s.GetModel()))).Interface()
+	items := reflect.New(reflect.SliceOf(reflect.TypeOf(s.GetResource()))).Interface()
 	result, err := s.ListQueryBuilder.ListQuery(parameters)
 	if err != nil {
 		return nil, resource.ErrInternal
