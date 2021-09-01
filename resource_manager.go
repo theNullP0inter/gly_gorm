@@ -11,10 +11,12 @@ import (
 	"gorm.io/gorm"
 )
 
+// RdbResourceManager should be implemented by all rdb resource managers
 type RdbResourceManager interface {
 	resource.DbResourceManager
 }
 
+// BaseRdbResourceManager is a base implementation for RdbResourceManager
 type BaseRdbResourceManager struct {
 	*resource.BaseResourceManager
 	Db               *gorm.DB
@@ -31,10 +33,11 @@ func handleGormError(err error) error {
 		return resource.ErrInvalidTransaction
 	}
 
-	var mysqlErr *mysql.MySQLError
+	mysqlErr := new(mysql.MySQLError)
 	if errors.As(err, &mysqlErr) && mysqlErr.Number == 1062 {
 		return resource.ErrUniqueConstraint
 	}
+
 	return resource.ErrInvalidQuery
 }
 
@@ -124,7 +127,7 @@ func (s *BaseRdbResourceManager) List(parameters resource.DataInterface) (resour
 // NewRdbResourceManager creates a new RdbResourceManager
 func NewRdbResourceManager(
 	db *gorm.DB,
-	logger logger.GooglyLoggerInterface,
+	logger logger.GooglyLogger,
 	model resource.Resource,
 	queryBuilder RdbListQueryBuilder,
 ) *BaseRdbResourceManager {

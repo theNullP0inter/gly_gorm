@@ -12,6 +12,5 @@ func NewRdb(dialect gorm.Dialector) *gorm.DB {
 	if err != nil {
 		panic("failed to connect to the database")
 	}
-
 	return db
 }
