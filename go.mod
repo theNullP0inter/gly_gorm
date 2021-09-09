@@ -7,6 +7,7 @@ require (
 	github.com/certifi/gocertifi v0.0.0-20210507211836-431795d63e8d // indirect
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/evalphobia/logrus_sentry v0.8.2 // indirect
+	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/getsentry/raven-go v0.2.0 // indirect
 	github.com/getsentry/sentry-go v0.11.0 // indirect
 	github.com/gin-gonic/gin v1.7.2 // indirect
@@ -25,13 +26,13 @@ require (
 	github.com/lib/pq v1.10.2
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-isatty v0.0.13 // indirect
+	github.com/pelletier/go-toml v1.9.4 // indirect
 	github.com/sarulabs/di v2.0.0+incompatible // indirect
-	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/spf13/cobra v1.2.1
 	github.com/stretchr/objx v0.3.0 // indirect
 	github.com/stretchr/testify v1.7.0
 	github.com/swaggo/swag v1.7.0 // indirect
-	github.com/theNullP0inter/googly v0.0.0-20210822121707-891636bdd0f8
+	github.com/theNullP0inter/googly v0.0.0-20210909150834-cbbb6eb02336
 	github.com/thedevsaddam/govalidator v1.9.10 // indirect
 	github.com/ugorji/go v1.2.6 // indirect
 	go.mongodb.org/mongo-driver v1.7.1 // indirect
@@ -39,6 +40,7 @@ require (
 	golang.org/x/tools v0.1.5 // indirect
 	google.golang.org/grpc v1.39.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
+	gopkg.in/ini.v1 v1.63.0 // indirect
 	gorm.io/driver/mysql v1.1.1
 	gorm.io/gorm v1.21.13
 )

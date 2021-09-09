@@ -42,7 +42,7 @@ func TestBaseRdbResourceManagerCreate(t *testing.T) {
 
 	rdb, mock := GetMockRdb(t)
 
-	l := new(logger.MockGooglyLogger)
+	l := logger.NewGooglyLogger()
 	r := &MockModel{}
 	qb := new(MockRdbListQueryBuilder)
 	rm := NewRdbResourceManager(rdb, l, r, qb)
@@ -83,7 +83,7 @@ func TestBaseRdbResourceManagerGet(t *testing.T) {
 
 	rdb, mock := GetMockRdb(t)
 
-	l := new(logger.MockGooglyLogger)
+	l := logger.NewGooglyLogger()
 	r := &MockModel{}
 	qb := new(MockRdbListQueryBuilder)
 	rm := NewRdbResourceManager(rdb, l, r, qb)
@@ -130,7 +130,7 @@ func TestBaseRdbResourceManagerDelete(t *testing.T) {
 
 	rdb, mock := GetMockRdb(t)
 
-	l := new(logger.MockGooglyLogger)
+	l := logger.NewGooglyLogger()
 	r := &MockModel{}
 	qb := new(MockRdbListQueryBuilder)
 	rm := NewRdbResourceManager(rdb, l, r, qb)
@@ -171,7 +171,7 @@ func TestBaseRdbResourceManagerUpdate(t *testing.T) {
 
 	rdb, mock := GetMockRdb(t)
 
-	l := new(logger.MockGooglyLogger)
+	l := logger.NewGooglyLogger()
 	r := &MockModel{}
 	qb := new(MockRdbListQueryBuilder)
 	rm := NewRdbResourceManager(rdb, l, r, qb)
@@ -196,7 +196,7 @@ func TestBaseRdbResourceManagerUpdate(t *testing.T) {
 func TestBaseRdbResourceManagerList(t *testing.T) {
 	rdb, _ := GetMockRdb(t)
 
-	l := new(logger.MockGooglyLogger)
+	l := logger.NewGooglyLogger()
 	r := &MockModel{}
 	qb := new(MockRdbListQueryBuilder)
 	rm := NewRdbResourceManager(rdb, l, r, qb)

@@ -127,7 +127,7 @@ func (s *BaseRdbResourceManager) List(parameters resource.DataInterface) (resour
 // NewRdbResourceManager creates a new RdbResourceManager
 func NewRdbResourceManager(
 	db *gorm.DB,
-	logger logger.GooglyLogger,
+	logger *logger.GooglyLogger,
 	model resource.Resource,
 	queryBuilder RdbListQueryBuilder,
 ) *BaseRdbResourceManager {

@@ -26,7 +26,7 @@ type PaginatedRdbListQueryBuilder interface {
 // BasePaginatedRdbListQueryBuilder is a base implementation for PaginatedRdbListQueryBuilder
 type BasePaginatedRdbListQueryBuilder struct {
 	Rdb    *gorm.DB
-	Logger logger.GooglyLogger
+	Logger *logger.GooglyLogger
 }
 
 // ListQuery should be implemented for RdbListQueryBuilder.
@@ -41,9 +41,7 @@ func (qb *BasePaginatedRdbListQueryBuilder) PaginationQuery(parameters resource.
 	// if params do not match the required format, log and return empty filter
 	val := reflect.ValueOf(parameters).Elem()
 	if val.Kind() != reflect.Struct {
-		qb.Logger.WithData(map[string]interface{}{
-			"parameters": parameters,
-		}).Warnf("Unexpected type of parameters for PaginationQuery")
+		qb.Logger.WithField("parameters", parameters).Warnf("Unexpected type of parameters for PaginationQuery")
 		return query
 	}
 
@@ -115,6 +113,6 @@ func (qb *BasePaginatedRdbListQueryBuilder) PaginationQuery(parameters resource.
 }
 
 // NewBasePaginatedRdbListQueryBuilder creates a new BasePaginatedRdbListQueryBuilder
-func NewBasePaginatedRdbListQueryBuilder(db *gorm.DB, logger logger.GooglyLogger) *BasePaginatedRdbListQueryBuilder {
+func NewBasePaginatedRdbListQueryBuilder(db *gorm.DB, logger *logger.GooglyLogger) *BasePaginatedRdbListQueryBuilder {
 	return &BasePaginatedRdbListQueryBuilder{Rdb: db, Logger: logger}
 }
